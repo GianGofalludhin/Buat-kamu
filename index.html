@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Idul Fitri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe Script', 'Caveat', cursive, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png'), 
+                        linear-gradient(135deg, #f3e5d5, #e2d1ba);
+            text-align: center;
+            color: #4a3424;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .text {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #4a3424;
+            width: 0;
+        }
+        #subtext {
+            font-size: 1.2em;
+            color: #6a5545;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .image-text {
+            font-size: 1.3em;
+            margin-top: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #4a3424;
+            width: 0;
+            color: #5a4534;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes deleting {
+            from { width: 100%; }
+            to { width: 0; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            opacity: 0;
+            color: #6a5545;
+            animation: fadeIn 3s ease-in-out 35s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .spotify-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #4a3424;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .spotify-link:hover {
+            color: #1DB954;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            .text {
+                font-size: 1.5em;
+            }
+            #subtext {
+                font-size: 1em;
+            }
+            .image-text, .spotify-link {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text" id="message">Minal Aidzin Wal Faizin</h1>
+        <p id="subtext">Mohon maaf lahir dan batin</p>
+        <p class="footer" id="footer">Dari Wais untuk Sopi</p>
+        
+        <div class="image-container" id="imageSection">
+            <img src="image/aku.jpg" alt="Kenangan">
+            <p class="image-text" id="imageText">Inget ini ga?</p>
+        </div>
+    </div>
+    
+    <script>
+        function changeText(newText, delay, callback) {
+            let message = document.getElementById("message");
+            message.style.animation = "deleting 2s steps(30, end) forwards";
+            setTimeout(() => {
+                message.innerText = newText;
+                message.style.animation = "typing 3s steps(30, end) forwards";
+                if (callback) setTimeout(callback, delay);
+            }, 2000);
+        }
+
+        setTimeout(() => {
+            changeText("Ga kerasa yaa", 3000, () => {
+                changeText("Udah setahun kita", 3000, () => {
+                    changeText("ga berkomunikasi", 3000, () => {
+                        changeText("Lucuu yaa kita dulu", 3000, () => {
+                            changeText("Aku ingin kamu baik", 3000, () => {
+                                changeText("di sana sama orang baru", 3000, () => {
+                                    changeText("Hehe, maaf aku lupa", 3000, () => {
+                                        changeText("kalo tanggal itu", 3000, () => {
+                                            changeText("kamu ulang tahun", 3000, () => {
+                                                changeText("Kamu pernah bilang ke Gian", 3000, () => {
+                                                    changeText("waktu Gian pura-pura jadi aku", 3000, () => {
+                                                        changeText("kalo kamu sayang aku dulu", 3000, () => {
+                                                            changeText("Aku juga masih", 3000, () => {
+                                                                changeText("sayang sama kamu", 3000, () => {
+                                                                    document.getElementById("message").style.animation = "deleting 2s steps(30, end) forwards";
+                                                                    setTimeout(() => {
+                                                                        document.getElementById("message").innerText = "";
+                                                                        document.getElementById("imageSection").style.display = "block";
+                                                                        document.getElementById("imageText").innerText = "Aku selalu inget moment ini";
+                                                                        document.getElementById("imageText").style.animation = "typing 3s steps(30, end) forwards";
+                                                                        setTimeout(() => {
+                                                                            let link = document.createElement("a");
+                                                                            link.href = "https://open.spotify.com/https://open.spotify.com/track/33UIshRVxXEBzITjCzo6al?si=86e6e7b787794b53";
+                                                                            link.innerText = "Dengerin ini ya sayang";
+                                                                            link.className = "spotify-link";
+                                                                            document.querySelector(".container").appendChild(link);
+                                                                        }, 3000);
+                                                                    }, 2000);
+                                                                });
+                                                            });
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
